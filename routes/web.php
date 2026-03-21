@@ -24,7 +24,7 @@ Route::post('/webpush/unsubscribe', [WebPushController::class, 'unsubscribe'])->
 
 // Home Route
 Route::get('/', function () {
-    return view('welcome');
+    return view('landing');
 });
 
 /*
