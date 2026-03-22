@@ -19,7 +19,7 @@ use App\Http\Controllers\Api\MosqueController;
 Route::post('devices/register', [DeviceController::class, 'register']);
 
 // General API routes - 60 requests per minute
-Route::prefix('v1')->group(function () {
+Route::group([], function () {
     Route::get('prayers/times', [PrayerController::class, 'times']);
     Route::get('adhkar/categories', [AdhkarController::class, 'categories']);
     Route::get('adhkar/{slug}', [AdhkarController::class, 'byCategory']);
