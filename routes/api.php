@@ -16,10 +16,10 @@ use App\Http\Controllers\Api\MosqueController;
 */
 
 // Device Registration - 10 requests per minute (strict rate limiting)
-Route::middleware('throttle:10,1')->post('devices/register', [DeviceController::class, 'register']);
+Route::post('devices/register', [DeviceController::class, 'register']);
 
 // General API routes - 60 requests per minute
-Route::middleware('throttle:60,1')->group(function () {
+Route::prefix('v1')->group(function () {
     Route::get('prayers/times', [PrayerController::class, 'times']);
     Route::get('adhkar/categories', [AdhkarController::class, 'categories']);
     Route::get('adhkar/{slug}', [AdhkarController::class, 'byCategory']);
